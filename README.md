@@ -15,4 +15,4 @@ To save having to import all steps, the library is broken into multiple managed 
 - Sharepoint integration
 - Azure integration
 
-Built and tested for v9.0 online only.
+Built and tested for v9.0 online onwards.
