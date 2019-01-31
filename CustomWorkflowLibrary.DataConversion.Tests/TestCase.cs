@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xrm.Sdk;
 
-namespace CustomWorkflowLibrary.DataConversion.Tests
+namespace CloudNative.Cwl.DataConversion.Tests
 {
     public class TestCase
     {

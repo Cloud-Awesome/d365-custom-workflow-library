@@ -24,6 +24,7 @@ namespace CustomWorkflowLibrary.DataConversion.Tests
         [Test]
         [TestCase("Yes", 0, true)]
         [TestCase("N", 1, false)]
+        [TestCase("No", 1, false)]
         public void IfBothInputsArePopulatedStringWins(string inputString, int? inputInt, bool expectedOutput)
         {
             var testClass = new ConvertToBoolean();

@@ -1,5 +1,6 @@
 ﻿using System;
-using Microsoft.Xrm.Sdk;
+using System.Collections.Generic;
+using CloudNative.Cwl.DataConversion.Tests;
 using NUnit.Framework;
 
 namespace CustomWorkflowLibrary.DataConversion.Tests
@@ -7,26 +8,41 @@ namespace CustomWorkflowLibrary.DataConversion.Tests
     [TestFixture]
     public class ConvertToDateTimeTests
     {
-        private readonly TestCase[] _tests =
+        public class DateTimeTestCase
         {
-            /*
-            new TestCase()
+            public DateTimeTestCase(string testCaseName, string inputString, DateTime expectedDateTimeOutput)
             {
-                InputString = "08/07/2018",
-                ExpectedDateTimeOutput = new DateTime(2010, 7, 8),
-                TestCaseName = "Positive Test 1"
-            },
-            new TestCase()
-            {
-                InputString = "21/08/2018",
-                ExpectedDateTimeOutput = new DateTime(2018, 8, 21),
-                TestCaseName = "Positive Test 1"
+                TestCaseName = testCaseName;
+                InputString = inputString;
+                ExpectedDateTimeOutput = expectedDateTimeOutput;
             }
-            */
-        };
+
+            public string TestCaseName { get; set; }
+
+            // Inputs
+            public string InputString { get; set; }
+
+            // Outputs
+            public DateTime ExpectedDateTimeOutput { get; set; }
+        }
+
+        private static IEnumerable<DateTimeTestCase> AddTests()
+        {
+            yield return new DateTimeTestCase(
+                "Positive Test 1",
+                "08/07/2010",
+                new DateTime(2010, 7, 8)                
+            );
+
+            yield return new DateTimeTestCase(
+                "Positive Test 1",
+                "21/08/2018",
+                new DateTime(2018, 8, 21)
+            );
+        }
 
         [Test]
-        public void HappyPath([ValueSource(nameof(_tests))]TestCase tests)
+        public void HappyPath([ValueSource(nameof(AddTests))]DateTimeTestCase tests)
         {
             var test = new ConvertToDateTime();
             var results = test.DoConversion(tests.InputString);
