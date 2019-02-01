@@ -1,6 +1,12 @@
-﻿namespace CustomWorkflowLibrary.DataConversion
+﻿using System.Activities;
+
+namespace CustomWorkflowLibrary.DataConversion
 {
-    class ConvertToWholeNumber
+    public class ConvertToWholeNumber: CodeActivity
     {
+        protected override void Execute(CodeActivityContext context)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

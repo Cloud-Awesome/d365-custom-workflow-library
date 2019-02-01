@@ -1,6 +1,12 @@
-﻿namespace CustomWorkflowLibrary.DataConversion
+﻿using System.Activities;
+
+namespace CustomWorkflowLibrary.DataConversion
 {
-    class ConvertToDouble
+    public class ConvertToDouble: CodeActivity
     {
+        protected override void Execute(CodeActivityContext context)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
