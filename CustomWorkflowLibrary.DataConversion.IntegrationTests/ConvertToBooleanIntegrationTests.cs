@@ -22,10 +22,10 @@ namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
         [TearDown]
         public void TearDown()
         {
-            //foreach (var guid in _recordsCreated)
-            //{
-            //    _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
-            //}
+            foreach (var guid in _recordsCreated)
+            {
+                _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
+            }
         }
 
         [Test]
