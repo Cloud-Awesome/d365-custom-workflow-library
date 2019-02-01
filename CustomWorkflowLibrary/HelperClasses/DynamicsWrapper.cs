@@ -51,6 +51,11 @@ namespace CustomWorkflowLibrary.HelperClasses
             return (WhoAmIResponse) response;
         }
 
+        public OrganizationResponse Execute(OrganizationRequest Request)
+        {
+            return _service.Execute(Request);
+        }
+
         /// <summary>
         /// Get Entity Collection via QE
         /// </summary>
@@ -104,31 +109,19 @@ namespace CustomWorkflowLibrary.HelperClasses
         /// <param name="recordId"></param>
         /// <param name="attributesList"></param>
         /// <returns></returns>
-        public CrmRecordSummary GetCrmRecord(string entityType, string recordId, string attributesList)
+        public Entity GetCrmRecord(string entityType, Guid recordId, string attributesList)
         {
             Entity entity;
             if (attributesList == null)
             {
-                entity = _service.Retrieve(entityType, Guid.Parse(recordId), new ColumnSet(true));
+                entity = _service.Retrieve(entityType, recordId, new ColumnSet(true));
             }
             else
             {
-                entity = _service.Retrieve(entityType, Guid.Parse(recordId), new ColumnSet(attributesList));
+                entity = _service.Retrieve(entityType, recordId, new ColumnSet(attributesList));
             }
-
-            var recordSummary = new CrmRecordSummary
-            {
-                Id = entity.Id,
-                Name = entityType == "incident" ?
-                    entity["title"].ToString() :
-                    entity["new_name"].ToString(),
-                AlternateName = entityType == "incident" ?
-                    entity["new_referencenumber"].ToString() :
-                    entity["new_sharepointintegrationreference"].ToString(),
-                CreatedOn = DateTime.Parse(entity["createdon"].ToString())
-            };
-
-            return recordSummary;
+            
+            return entity;
         }
 
         /// <summary>
@@ -295,42 +288,7 @@ namespace CustomWorkflowLibrary.HelperClasses
 
             return urlResponse.AbsoluteUrl.ToString();
         }
-
-
-        public Guid GetWorkflowIdByName(string workflowName)
-        {
-            
-            var query = new QueryExpression("workflow")
-            {
-                ColumnSet = new ColumnSet("workflowid"),
-                Criteria = new FilterExpression()
-            };
-
-            query.Criteria.AddCondition("name", ConditionOperator.Equal, workflowName);
-
-            EntityCollection queryResults;
-            try
-            {
-                queryResults = _service.RetrieveMultiple(query);
-            }
-            catch (Exception exception)
-            {
-                //_t.TrackEvent("Exception thrown in GetCrmRecords method");
-                //_t.TrackException(exception);
-                throw;
-            }
-
-            if (queryResults.Entities.Count == 0)
-            {
-                throw new Exception("Could not find intended workflow");
-            }
-            else
-            {
-                return queryResults.Entities[0].Id;
-            }
-            
-        }
-
+        
         /// <summary>
         /// Wrapper for EntityReference to save on Crm.Sdk references
         /// </summary>
