@@ -4,7 +4,7 @@ using System.Globalization;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Workflow;
 
-namespace CustomWorkflowLibrary.DataConversion
+namespace DataConversion
 {
     public class ConvertToString: CodeActivity
     {

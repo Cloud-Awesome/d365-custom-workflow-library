@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace CustomWorkflowLibrary.DataConversion.Tests
+namespace DataConversion.Tests
 {
     [TestFixture]
     public class ConvertToDoubleTests

@@ -5,15 +5,15 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary", "CustomWorkflowLibrary\CustomWorkflowLibrary.csproj", "{6219AC54-7074-4AA7-8AD5-75E81C0F0A95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.DataConversion", "CustomWorkflowLibrary.DataConversion\CustomWorkflowLibrary.DataConversion.csproj", "{B5EB6D41-98CF-41FB-A4B4-A24B61A19BDD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion", "DataConversion\DataConversion.csproj", "{B5EB6D41-98CF-41FB-A4B4-A24B61A19BDD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.DataConversion.UnitTests", "CustomWorkflowLibrary.DataConversion.Tests\CustomWorkflowLibrary.DataConversion.UnitTests.csproj", "{FAA6A93F-2FC9-48C9-AC8F-15C501D999EA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion.Tests", "DataConversion.Tests\DataConversion.Tests.csproj", "{FAA6A93F-2FC9-48C9-AC8F-15C501D999EA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.StringManipulation", "CustomWorkflowLibrary.StringManipulation\CustomWorkflowLibrary.StringManipulation.csproj", "{CAFDDD17-FB4E-4094-A2CF-CB6FDB30ED49}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.StringManipulation.UnitTests", "CustomWorkflowLibrary.StringManipulation.UnitTests\CustomWorkflowLibrary.StringManipulation.UnitTests.csproj", "{5363A03D-B6DA-4750-8A9C-3A92571F33F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.DataConversion.IntegrationTests", "CustomWorkflowLibrary.DataConversion.IntegrationTests\CustomWorkflowLibrary.DataConversion.IntegrationTests.csproj", "{F80357D6-0FBB-4F1B-AA0D-0F4264CF36C0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion.IntegrationTests", "DataConversion.IntegrationTests\DataConversion.IntegrationTests.csproj", "{F80357D6-0FBB-4F1B-AA0D-0F4264CF36C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

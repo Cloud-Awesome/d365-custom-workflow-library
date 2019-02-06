@@ -7,8 +7,8 @@
     <ProjectGuid>{B5EB6D41-98CF-41FB-A4B4-A24B61A19BDD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomWorkflowLibrary.DataConversion</RootNamespace>
-    <AssemblyName>CustomWorkflowLibrary.DataConversion</AssemblyName>
+    <RootNamespace>DataConversion</RootNamespace>
+    <AssemblyName>DataConversion</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

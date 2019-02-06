@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Microsoft.Xrm.Sdk;
 using NUnit.Framework;
 
-namespace CustomWorkflowLibrary.DataConversion.Tests
+namespace DataConversion.Tests
 {
     [TestFixture]
     public class ConvertToCurrencyTests

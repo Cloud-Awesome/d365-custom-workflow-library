@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using CloudNative.Cwl.DataConversion.Tests;
 using NUnit.Framework;
 
-namespace CustomWorkflowLibrary.DataConversion.Tests
+namespace DataConversion.Tests
 {
     [TestFixture]
     public class ConvertToDateTimeTests

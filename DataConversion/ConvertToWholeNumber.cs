@@ -1,26 +1,26 @@
 ﻿using System.Activities;
 using Microsoft.Xrm.Sdk.Workflow;
 
-namespace CustomWorkflowLibrary.DataConversion
+namespace DataConversion
 {
-    public class ConvertToDouble: CodeActivity
+    public class ConvertToWholeNumber: CodeActivity
     {
         [Input("String of Whole Number input")]
         public InArgument<string> StringInArgument { get; set; }
 
-        [Output("Double Output")]
-        public OutArgument<int> DoubleOutArgument { get; set; }
-
+        [Output("Whole Number Output")]
+        public OutArgument<int> IntOutArgument { get; set; }
+        
         protected override void Execute(CodeActivityContext context)
         {
             var inputString = StringInArgument.Get(context);
             var returnValue = DoConversion(inputString);
-            DoubleOutArgument.Set(context, returnValue);
+            IntOutArgument.Set(context, returnValue);
         }
 
-        public double DoConversion(string inputString)
+        public int DoConversion(string inputString)
         {
-            var returnValue = double.Parse(inputString);
+            var returnValue = int.Parse(inputString);
             return returnValue;
         }
     }

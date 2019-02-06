@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
+namespace DataConversion.IntegrationTests
 {
-    class ConvertToDateTimeIntegrationTests
+    class ConvertToStringIntegrationTests
     {
     }
 }

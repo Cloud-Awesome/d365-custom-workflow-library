@@ -7,8 +7,8 @@
     <ProjectGuid>{FAA6A93F-2FC9-48C9-AC8F-15C501D999EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CustomWorkflowLibrary.DataConversion.Tests</RootNamespace>
-    <AssemblyName>CustomWorkflowLibrary.DataConversion.Tests</AssemblyName>
+    <RootNamespace>DataConversion.Tests</RootNamespace>
+    <AssemblyName>DataConversion.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -75,9 +75,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomWorkflowLibrary.DataConversion\CustomWorkflowLibrary.DataConversion.csproj">
+    <ProjectReference Include="..\DataConversion\DataConversion.csproj">
       <Project>{b5eb6d41-98cf-41fb-a4b4-a24b61a19bdd}</Project>
-      <Name>CustomWorkflowLibrary.DataConversion</Name>
+      <Name>DataConversion</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

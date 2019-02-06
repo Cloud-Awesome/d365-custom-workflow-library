@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft.Xrm.Sdk;
+
 using NUnit.Framework;
 
 using CustomWorkflowLibrary.HelperClasses;
 using Microsoft.Crm.Sdk.Messages;
 
-namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
+namespace DataConversion.IntegrationTests
 {
     [TestFixture]
     public class ConvertToBooleanIntegrationTests
@@ -19,14 +19,14 @@ namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
         /// <summary>
         /// Delete all records created within this fixture
         /// </summary>
-        [TearDown]
-        public void TearDown()
-        {
-            foreach (var guid in _recordsCreated)
-            {
-                _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
-            }
-        }
+        //[TearDown]
+        //public void TearDown()
+        //{
+        //    foreach (var guid in _recordsCreated)
+        //    {
+        //        _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
+        //    }
+        //}
 
         [Test]
         [TestCase("true", true)]
@@ -66,6 +66,8 @@ namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
 
             Assert.AreEqual(expectedOutput, processedRecord["cn_booleanvalue"]);
 
+            // Tear Down
+            _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
         }
 
         [Test]
@@ -98,6 +100,8 @@ namespace CustomWorkflowLibrary.DataConversion.IntegrationTests
 
             Assert.AreEqual(expectedOutput, processedRecord["cn_booleanvalue"]);
 
+            // Tear Down
+            _crm.DeleteCrmRecord(IntegrationTestEntityName, guid);
         }
 
     }
