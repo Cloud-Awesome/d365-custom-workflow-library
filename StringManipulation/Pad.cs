@@ -39,7 +39,7 @@ namespace StringManipulation
             OutputString.Set(context, output);
         }
 
-        private string PadString(string inputString, char padCharacter, bool padOnLeft, int finalLength)
+        public string PadString(string inputString, char padCharacter, bool padOnLeft, int finalLength)
         {
             return padOnLeft ?
                 inputString.PadLeft(finalLength, padCharacter) :

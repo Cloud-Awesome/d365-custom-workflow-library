@@ -1,5 +1,4 @@
-﻿using DataConversion;
-using Microsoft.Xrm.Sdk;
+﻿using Microsoft.Xrm.Sdk;
 using NUnit.Framework;
 
 namespace DataConversion.Tests
