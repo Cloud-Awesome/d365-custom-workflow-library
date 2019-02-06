@@ -63,28 +63,28 @@ namespace CustomWorkflowLibrary.DataConversion
             return DoConversion(inputMoney);
         }
 
-        public string DoConversion(DateTime inputDateTime)
+        private string DoConversion(DateTime inputDateTime)
         {
             // Question: Should Dateformat be an input parameter, as opposed to hard-coding to ShortDateString
             return inputDateTime.ToShortDateString();
         }
 
-        public string DoConversion(bool inputBool)
+        private string DoConversion(bool inputBool)
         {
             return inputBool.ToString();
         }
 
-        public string DoConversion(int inputInt)
+        private string DoConversion(int inputInt)
         {
             return inputInt.ToString();
         }
 
-        public string DoConversion(double inputDouble)
+        private string DoConversion(double inputDouble)
         {
             return inputDouble.ToString(CultureInfo.CurrentCulture);
         }
 
-        public string DoConversion(Money inputMoney)
+        private string DoConversion(Money inputMoney)
         {
             // QUESTION: - Not sure right now how best to include a currency symbol etc.
             try

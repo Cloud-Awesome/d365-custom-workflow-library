@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CWLIntegrationTests_1_0_1_0_managed.zip" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />

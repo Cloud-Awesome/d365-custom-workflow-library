@@ -32,7 +32,7 @@ namespace CustomWorkflowLibrary.DataConversion.Tests
             public Money InputMoney { get; set; }
 
             // Outputs
-            public string ExpectedStringOutput { get; set; }
+            public string ExpectedStringOutput { get; private set; }
         }
 
         #region Test Cases
@@ -162,7 +162,7 @@ namespace CustomWorkflowLibrary.DataConversion.Tests
         #endregion Test Cases
 
         [Test, TestCaseSource(nameof(AddTests))]
-        public void HappyPath2(StringTestCase testCase)
+        public void HappyPath(StringTestCase testCase)
         {
             var test = new ConvertToString();
             var result = test.ChooseConversion(testCase.InputDate, testCase.InputBool, testCase.InputInt,
