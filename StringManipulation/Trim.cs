@@ -2,6 +2,8 @@
 {
     public class Trim
     {
+        //TODO - WorkFlow Activity
+
         public string GetTrimmedString(string inputString, string stringToTrim)
         {
             var returnValue = !string.IsNullOrEmpty(stringToTrim) ? 
