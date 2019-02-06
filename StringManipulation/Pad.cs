@@ -1,7 +1,7 @@
 ﻿using System.Activities;
 using Microsoft.Xrm.Sdk.Workflow;
 
-namespace CustomWorkflowLibrary.StringManipulation
+namespace StringManipulation
 {
     public class Pad : CodeActivity
     {

@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion", "DataConve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion.Tests", "DataConversion.Tests\DataConversion.Tests.csproj", "{FAA6A93F-2FC9-48C9-AC8F-15C501D999EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.StringManipulation", "CustomWorkflowLibrary.StringManipulation\CustomWorkflowLibrary.StringManipulation.csproj", "{CAFDDD17-FB4E-4094-A2CF-CB6FDB30ED49}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManipulation", "StringManipulation\StringManipulation.csproj", "{CAFDDD17-FB4E-4094-A2CF-CB6FDB30ED49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomWorkflowLibrary.StringManipulation.UnitTests", "CustomWorkflowLibrary.StringManipulation.UnitTests\CustomWorkflowLibrary.StringManipulation.UnitTests.csproj", "{5363A03D-B6DA-4750-8A9C-3A92571F33F9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringManipulation.Tests", "StringManipulation.Tests\StringManipulation.Tests.csproj", "{5363A03D-B6DA-4750-8A9C-3A92571F33F9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion.IntegrationTests", "DataConversion.IntegrationTests\DataConversion.IntegrationTests.csproj", "{F80357D6-0FBB-4F1B-AA0D-0F4264CF36C0}"
 EndProject
