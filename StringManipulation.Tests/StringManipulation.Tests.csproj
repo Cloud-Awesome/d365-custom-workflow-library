@@ -75,7 +75,9 @@
     <Compile Include="MidTests.cs" />
     <Compile Include="PadTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplaceTests.cs" />
     <Compile Include="RightTests.cs" />
+    <Compile Include="SetCaseTests.cs" />
     <Compile Include="SplitTests.cs" />
     <Compile Include="TrimTests.cs" />
   </ItemGroup>
