@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Microsoft.Xrm.Sdk;
 
 namespace StringManipulation.Tests
 {
@@ -27,6 +28,16 @@ namespace StringManipulation.Tests
             var result = test.GetSplitOutput(inputString, deliminator, returnIndex);
 
             Assert.AreEqual(expectedResult, result);
+        }
+
+        [Test]
+        [TestCase("1; 2; 3", ";", 6)]
+        public void OutOfBoundsErrorIsThrown(string inputString, string deliminator, int returnIndex)
+        {
+            var test = new Split();
+            
+            Assert.Throws<InvalidPluginExecutionException>(
+                () => test.GetSplitOutput(inputString, deliminator, returnIndex));
         }
     }
 }
