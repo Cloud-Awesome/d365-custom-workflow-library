@@ -66,7 +66,7 @@ namespace DataConversion
         private string DoConversion(DateTime inputDateTime)
         {
             // Question: Should Dateformat be an input parameter, as opposed to hard-coding to ShortDateString
-            return inputDateTime.ToShortDateString();
+            return inputDateTime.ToString();
         }
 
         private string DoConversion(bool inputBool)
