@@ -71,8 +71,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddRoleToUser.cs" />
     <Compile Include="AddUserToTeam.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoveRoleFromUser.cs" />
     <Compile Include="RemoveUserFromTeam.cs" />
   </ItemGroup>
   <ItemGroup>
