@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataConversion.IntegrationT
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmPlatform", "CrmPlatform\CrmPlatform.csproj", "{414E24A8-E9DF-4E56-A5E5-B21B8DFA9B7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmPlatform.Tests", "CrmPlatform.Tests\CrmPlatform.Tests.csproj", "{23BA3F2C-0469-4606-8037-66D42D8B141C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrmPlatform.IntegrationTests", "CrmPlatform.IntegrationTests\CrmPlatform.IntegrationTests.csproj", "{DDEAD9AE-787A-4024-B356-C23E793A6DF0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{414E24A8-E9DF-4E56-A5E5-B21B8DFA9B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414E24A8-E9DF-4E56-A5E5-B21B8DFA9B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414E24A8-E9DF-4E56-A5E5-B21B8DFA9B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BA3F2C-0469-4606-8037-66D42D8B141C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BA3F2C-0469-4606-8037-66D42D8B141C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BA3F2C-0469-4606-8037-66D42D8B141C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BA3F2C-0469-4606-8037-66D42D8B141C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDEAD9AE-787A-4024-B356-C23E793A6DF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDEAD9AE-787A-4024-B356-C23E793A6DF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDEAD9AE-787A-4024-B356-C23E793A6DF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDEAD9AE-787A-4024-B356-C23E793A6DF0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
