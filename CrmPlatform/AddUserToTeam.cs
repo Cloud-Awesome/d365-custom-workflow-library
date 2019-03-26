@@ -19,9 +19,9 @@ namespace CrmPlatform
 
         protected override void Execute(CodeActivityContext context)
         {
-            IWorkflowContext executionContext = context.GetExtension<IWorkflowContext>();
-            IOrganizationServiceFactory serviceFactory = context.GetExtension<IOrganizationServiceFactory>();
-            IOrganizationService service = serviceFactory.CreateOrganizationService(executionContext.UserId);
+            var executionContext = context.GetExtension<IWorkflowContext>();
+            var serviceFactory = context.GetExtension<IOrganizationServiceFactory>();
+            var service = serviceFactory.CreateOrganizationService(executionContext.UserId);
 
             var userToAdd = UserToAddInArgument.Get(context);
             var teamToJoin = TeamToJoinInArgument.Get(context);

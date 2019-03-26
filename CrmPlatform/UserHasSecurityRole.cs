@@ -1,5 +1,7 @@
 ﻿using System.Activities;
+
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Sdk.Workflow;
 
 namespace CrmPlatform
@@ -21,8 +23,65 @@ namespace CrmPlatform
 
         protected override void Execute(CodeActivityContext context)
         {
-            throw new System.NotImplementedException();
-            //TODO - Sample Code: https://docs.microsoft.com/en-us/dynamics365/customer-engagement/developer/sample-determine-user-role
+            var executionContext = context.GetExtension<IWorkflowContext>();
+            var serviceFactory = context.GetExtension<IOrganizationServiceFactory>();
+            var service = serviceFactory.CreateOrganizationService(executionContext.UserId);
+
+            var user = UserInArgument.Get(context);
+            var role = RoleInArgument.Get(context);
+
+            var result = HasSecurityRole(service, user, role);
+            HasSecurityRoleOutArgument.Set(context, result);
+        }
+
+        private bool HasSecurityRole(IOrganizationService service, EntityReference user, 
+            EntityReference role)
+        {
+            const string systemUserRolesEntityName = "systemuserroles";
+            const string roleEntityName = "role";
+            const string roleIdAttributeName = "roleid";
+            const string userIdAttributeName = "systemuserid";
+
+            var returnValue = false;
+
+            // Get all roles with this name to capture parent-child roles in different BUs
+            var query = new QueryExpression()
+            {
+                EntityName = systemUserRolesEntityName,
+                ColumnSet = new ColumnSet(true),
+                Criteria =
+                {
+                    Conditions =
+                    {
+                        new ConditionExpression(userIdAttributeName, 
+                            ConditionOperator.Equal, user.Id)
+                    }
+                }
+            };
+
+            // Reference Roles entity to get Name (so comparison isn't based on GUID)
+            var roles = new LinkEntity(systemUserRolesEntityName, roleEntityName,
+                roleIdAttributeName, roleIdAttributeName, JoinOperator.Inner)
+            {
+                Columns = new ColumnSet("name"),
+                EntityAlias = "roles"
+            };
+
+            query.LinkEntities.Add(roles);
+
+            // Retrieve matching roles.
+            var matchEntities = service.RetrieveMultiple(query);
+
+            foreach (var entity in matchEntities.Entities)
+            {
+                var roleName = (entity["roles.name"] as AliasedValue)?.Value.ToString();
+                if (roleName == role.Name)
+                {
+                    returnValue = true;
+                }
+            }
+
+            return returnValue;
         }
     }
 }
