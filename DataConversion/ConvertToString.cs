@@ -11,6 +11,9 @@ namespace DataConversion
         [Input("DateTime Input")]
         public InArgument<DateTime> DateTimeInArgument { get; set; }
 
+        [Input("DateTime format (e.g. dd/MM/yyyy)")]
+        public InArgument<string> DateTimeFormatInArgument { get; set; }
+
         [Input("or, Boolean Input")]
         public InArgument<bool> BoolInArgument { get; set; }
 
@@ -29,24 +32,25 @@ namespace DataConversion
         protected override void Execute(CodeActivityContext context)
         {
             var inputDateTime = DateTimeInArgument.Get(context);
+            var dateTimeFormat = DateTimeFormatInArgument.Get(context);
             var inputBool = BoolInArgument.Get(context);
             var inputInteger = IntegerInArgument.Get(context);
             var inputDouble = DoubleInArgument.Get(context);
             var inputMoney = MoneyInArgument.Get(context);
 
             var returnValue = ChooseConversion(inputDateTime, inputBool, inputInteger,
-                inputDouble, inputMoney);
+                inputDouble, inputMoney, dateTimeFormat);
 
             StringOutArgument.Set(context, returnValue);
 
         }
 
         public string ChooseConversion(DateTime? inputDateTime, bool? inputBool, int? inputInt,
-            double? inputDouble, Money inputMoney)
+            double? inputDouble, Money inputMoney, string dateTimeFormat)
         {
             if (inputDateTime.HasValue)
             {
-                return DoConversion(inputDateTime.Value);
+                return DoConversion(inputDateTime.Value, dateTimeFormat);
             }
             if (inputBool.HasValue)
             {
@@ -63,10 +67,11 @@ namespace DataConversion
             return DoConversion(inputMoney);
         }
 
-        private string DoConversion(DateTime inputDateTime)
+        private string DoConversion(DateTime inputDateTime, string dateTimeFormat)
         {
-            // Question: Should Dateformat be an input parameter, as opposed to hard-coding to ShortDateString
-            return inputDateTime.ToString();
+            return dateTimeFormat == string.Empty ? 
+                inputDateTime.ToString() : 
+                inputDateTime.ToString(dateTimeFormat);
         }
 
         private string DoConversion(bool inputBool)

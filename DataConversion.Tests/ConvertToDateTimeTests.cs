@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using CloudNative.Cwl.DataConversion.Tests;
 using NUnit.Framework;
 
 namespace DataConversion.Tests

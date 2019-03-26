@@ -11,7 +11,9 @@ namespace DataConversion.Tests
 
         public class StringTestCase
         {
-            public StringTestCase(string testCaseName, DateTime? inputDate, bool? inputBool, int? inputInt, double? inputDouble, Money inputMoney, string expectedStringOutput)
+            public StringTestCase(string testCaseName, DateTime? inputDate, bool? inputBool, 
+                int? inputInt, double? inputDouble, Money inputMoney, String dateTimeFormat, 
+                string expectedStringOutput)
             {
                 TestCaseName = testCaseName;
                 InputDate = inputDate;
@@ -19,6 +21,7 @@ namespace DataConversion.Tests
                 InputInt = inputInt;
                 InputDouble = inputDouble;
                 InputMoney = inputMoney;
+                DateTimeFormat = dateTimeFormat ?? throw new ArgumentNullException(nameof(dateTimeFormat));
                 ExpectedStringOutput = expectedStringOutput;
             }
 
@@ -30,6 +33,7 @@ namespace DataConversion.Tests
             public int? InputInt { get; set; }
             public double? InputDouble { get; set; }
             public Money InputMoney { get; set; }
+            public String DateTimeFormat { get; set; }
 
             // Outputs
             public string ExpectedStringOutput { get; private set; }
@@ -45,6 +49,7 @@ namespace DataConversion.Tests
                 2,
                 1.4,
                 new Money(new decimal(20.41)),
+                "dd/MM/yyyy", 
                 "08/07/2010"
             );
 
@@ -55,7 +60,8 @@ namespace DataConversion.Tests
                 2,
                 1.4,
                 new Money(new decimal(20.41)),
-                "01/04/1890"
+                String.Empty,
+                "01/04/1890 00:00:00"
             );
 
             yield return new StringTestCase(
@@ -65,6 +71,7 @@ namespace DataConversion.Tests
                 2,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "True"
             );
 
@@ -75,6 +82,7 @@ namespace DataConversion.Tests
                 2,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "False"
             );
 
@@ -85,6 +93,7 @@ namespace DataConversion.Tests
                 2,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "2"
             );
 
@@ -95,6 +104,7 @@ namespace DataConversion.Tests
                 9000,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "9000"
             );
 
@@ -105,6 +115,7 @@ namespace DataConversion.Tests
                 -4456,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "-4456"
             );
 
@@ -115,6 +126,7 @@ namespace DataConversion.Tests
                 null,
                 1.4,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "1.4"
             );
 
@@ -125,6 +137,7 @@ namespace DataConversion.Tests
                 null,
                 3.14792,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "3.14792"
             );
 
@@ -135,6 +148,7 @@ namespace DataConversion.Tests
                 null,
                 -423.998,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "-423.998"
             );
 
@@ -145,6 +159,7 @@ namespace DataConversion.Tests
                 null,
                 null,
                 new Money(new decimal(20.41)),
+                String.Empty,
                 "20.41"
             );
 
@@ -155,6 +170,7 @@ namespace DataConversion.Tests
                 null,
                 null,
                 new Money(new decimal(1447587.99)),
+                String.Empty,
                 "1447587.99"
             );
 
@@ -166,7 +182,7 @@ namespace DataConversion.Tests
         {
             var test = new ConvertToString();
             var result = test.ChooseConversion(testCase.InputDate, testCase.InputBool, testCase.InputInt,
-                testCase.InputDouble, testCase.InputMoney);
+                testCase.InputDouble, testCase.InputMoney, testCase.DateTimeFormat);
             
             Assert.AreEqual(testCase.ExpectedStringOutput, result, testCase.TestCaseName);
         }
